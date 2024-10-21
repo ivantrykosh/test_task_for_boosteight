@@ -1,6 +1,5 @@
-package com.ivantrykosh.app.test_task_for_boosteight.ui.theme
+package com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme

@@ -1,4 +1,4 @@
-package com.ivantrykosh.app.test_task_for_boosteight.ui.theme
+package com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
