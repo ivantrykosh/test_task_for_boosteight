@@ -73,6 +73,7 @@ dependencies {
     val hilt_version = "2.51.1"
     implementation("com.google.dagger:hilt-android:$hilt_version")
     kapt("com.google.dagger:hilt-android-compiler:$hilt_version")
+    implementation("androidx.hilt:hilt-navigation-compose:1.2.0")
 
     // Room
     val room_version = "2.6.1"
@@ -86,4 +87,8 @@ dependencies {
     testImplementation("org.mockito:mockito-inline:$mockito_version")
     testImplementation("org.mockito.kotlin:mockito-kotlin:3.0.0")
     testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.9.0-RC.2")
+
+    // Navigation
+    val nav_version = "2.8.3"
+    implementation("androidx.navigation:navigation-compose:$nav_version")
 }
