@@ -25,7 +25,7 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.LoadingProgress
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 
 @Composable
-fun LoadingScreen(navigateToOnBoarding: () -> Unit) {
+fun LoadingScreen(navigateToOnboarding: () -> Unit) {
     Background()
     Box(
         modifier = Modifier.fillMaxSize()
@@ -52,7 +52,7 @@ fun LoadingScreen(navigateToOnBoarding: () -> Unit) {
             .padding(32.dp)
             .padding(bottom = 10.dp)
             .align(Alignment.BottomCenter)) {
-            LoadingProgressIndicator(durationMillis = 2000, onProgressFinished = navigateToOnBoarding)
+            LoadingProgressIndicator(durationMillis = 2000, onProgressFinished = navigateToOnboarding)
         }
     }
 }
@@ -60,5 +60,5 @@ fun LoadingScreen(navigateToOnBoarding: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun LoadingScreenPreview() {
-    LoadingScreen(navigateToOnBoarding = {})
+    LoadingScreen(navigateToOnboarding = {})
 }

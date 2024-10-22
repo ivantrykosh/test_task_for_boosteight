@@ -11,5 +11,5 @@ val PurpleGrey40 = Color(0xFF625b71)
 val Pink40 = Color(0xFF7D5260)
 
 val LightBlueBackground = Color(0xFFB2DEFB)
-val RedProgress = Color(0xFFFF6B6B)
-val LightRedProgress = Color(0xFFFFACAC)
+val PastelRed = Color(0xFFFF6B6B)
+val Melon = Color(0xFFFFACAC)

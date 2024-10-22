@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Heart Rate</string>
+    <string name="your_pressure_tracker">Ваш трекер тиску</string>
+    <string name="your_pressure_tracker_description">Зазначайте, відстежуйте та аналізуйте свої показники артеріального тиску.</string>
+    <string name="start">Почати!</string>
+    <string name="continue_">Продовжити</string>
+    <string name="personalized_advices">Персоналізовані поради</string>
+    <string name="personalized_advices_description">Програма надає дієві поради, які допоможуть вам підтримувати оптимальний рівень артеріального тиску та зменшити фактори ризику серцево-судинних захворювань.</string>
+    <string name="reminder">Нагадування</string>
+    <string name="reminder_description">Не відставайте від графіка контролю артеріального тиску та прийому ліків за допомогою спеціальних нагадувань.</string>
 </resources>

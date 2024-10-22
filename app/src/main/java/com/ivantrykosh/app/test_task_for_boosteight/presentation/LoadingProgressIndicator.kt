@@ -28,8 +28,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.ivantrykosh.app.test_task_for_boosteight.R
-import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.LightRedProgress
-import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.RedProgress
+import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Melon
+import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
 
 @Composable
 fun LoadingProgressIndicator(
@@ -57,8 +57,8 @@ fun LoadingProgressIndicator(
                 .height(20.dp)
                 .clip(RoundedCornerShape(50))
                 .border(1.dp, Color.Red, RoundedCornerShape(50)),
-            color = RedProgress,
-            trackColor = LightRedProgress,
+            color = PastelRed,
+            trackColor = Melon,
             strokeCap = StrokeCap.Round,
         )
         Text(
