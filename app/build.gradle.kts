@@ -101,4 +101,8 @@ dependencies {
 
     // Accompanist
     implementation("com.google.accompanist:accompanist-permissions:0.36.0")
+
+    // For measuring human heart rate
+    implementation("com.github.kibotu:Heart-Rate-Ometer:-SNAPSHOT")
+    implementation("io.reactivex.rxjava2:rxjava:2.2.8")
 }

@@ -38,7 +38,7 @@ fun NavGraph(navController: NavHostController) {
                     navController.navigateUp()
                 },
                 navigateToResult = {
-                    // todo
+                    navController.navigate(Screen.GreetingScreen.route)
                 }
             )
         }
