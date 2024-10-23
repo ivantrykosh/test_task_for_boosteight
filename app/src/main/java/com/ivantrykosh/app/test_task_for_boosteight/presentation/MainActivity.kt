@@ -14,7 +14,7 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.TestTa
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+//        enableEdgeToEdge()
         setContent {
             val navController = rememberNavController()
             TestTaskForBoosteightTheme {

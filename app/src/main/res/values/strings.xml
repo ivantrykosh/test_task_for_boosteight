@@ -8,4 +8,6 @@
     <string name="personalized_advices_description">Програма надає дієві поради, які допоможуть вам підтримувати оптимальний рівень артеріального тиску та зменшити фактори ризику серцево-судинних захворювань.</string>
     <string name="reminder">Нагадування</string>
     <string name="reminder_description">Не відставайте від графіка контролю артеріального тиску та прийому ліків за допомогою спеціальних нагадувань.</string>
+    <string name="history">Історія</string>
+    <string name="take_your_first_measurement">Виконайте своє перше вимірювання!</string>
 </resources>
