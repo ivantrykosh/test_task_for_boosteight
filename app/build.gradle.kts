@@ -91,4 +91,14 @@ dependencies {
     // Navigation
     val nav_version = "2.8.3"
     implementation("androidx.navigation:navigation-compose:$nav_version")
+
+    // Camera
+    val camera_version = "1.3.4"
+    implementation("androidx.camera:camera-core:$camera_version")
+    implementation("androidx.camera:camera-camera2:$camera_version")
+    implementation("androidx.camera:camera-lifecycle:$camera_version")
+    implementation("androidx.camera:camera-view:$camera_version")
+
+    // Accompanist
+    implementation("com.google.accompanist:accompanist-permissions:0.36.0")
 }

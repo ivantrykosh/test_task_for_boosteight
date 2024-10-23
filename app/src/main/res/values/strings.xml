@@ -10,4 +10,8 @@
     <string name="reminder_description">Не відставайте від графіка контролю артеріального тиску та прийому ліків за допомогою спеціальних нагадувань.</string>
     <string name="history">Історія</string>
     <string name="take_your_first_measurement">Виконайте своє перше вимірювання!</string>
+    <string name="camera_permission_is_needed">Дозвіл на використання камери потрібен для роботи програми!</string>
+    <string name="finger_not_detected">Палець не виявлено</string>
+    <string name="finger_not_detected_description">Щільно прикладіть палець до камери</string>
+    <string name="bpm">bpm</string>
 </resources>
