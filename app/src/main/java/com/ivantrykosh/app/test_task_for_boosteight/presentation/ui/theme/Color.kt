@@ -16,3 +16,9 @@ val Melon = Color(0xFFFFACAC)
 val DarkPastelRed = Color(0xFFFF5252)
 val LightPastelRed = Color(0xFFFF8585)
 val LightBlue = Color(0xFF4CB8FF)
+
+val BrightTurquoise = Color(0xFF21D7E2)
+val MediumSpringGreen = Color(0xFF1FF19B)
+val TartOrange = Color(0xFFFF4C4C)
+
+val WhiteTransparent = Color(0xBBFFFFFF)

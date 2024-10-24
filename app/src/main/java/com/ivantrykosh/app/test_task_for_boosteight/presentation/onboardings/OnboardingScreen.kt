@@ -97,7 +97,7 @@ fun OnboardingScreen(navigateToHome: () -> Unit) {
                 }
                 Text(
                     text = buttonText,
-                    fontSize = Dimens.onboardingButtonTextSize,
+                    fontSize = Dimens.buttonTextSize,
                     fontWeight = FontWeight.Normal,
                     fontFamily = FontFamily(Font(R.font.rubik)),
                     modifier = Modifier.fillMaxWidth(),

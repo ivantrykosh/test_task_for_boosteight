@@ -12,7 +12,7 @@ object Dimens {
     val onboardingTitleTextSize = 24.sp
     val onboardingTitleDescriptionSpacerHeight = 4.dp
     val onboardingDescriptionTextSize = 16.sp
-    val onboardingButtonTextSize = 16.sp
+    val buttonTextSize = 16.sp
     val onboardingCircleIndicatorDiameter = 14.dp
     val historyIconSize = 38.dp
     val historyTextSize = 20.sp

@@ -17,4 +17,13 @@
     <string name="measuring_in_progress">Йде вимірювання</string>
     <string name="measuring_in_progress_description">Визначаємо ваш пульс. Утримуйте!</string>
     <string name="bpm_placeholder">--</string>
+    <string name="result">Результат</string>
+    <string name="your_result">Ваш результат</string>
+    <string name="slowed_down">Уповільнений</string>
+    <string name="normal">Звичайний</string>
+    <string name="speeded_up">Прискорений</string>
+    <string name="lower_than_60_bpm"><![CDATA[<60 BPM]]></string>
+    <string name="between_60_and_100_bpm"><![CDATA[60–100 BPM]]></string>
+    <string name="higher_than_100_bpm"><![CDATA[>100 BPM]]></string>
+    <string name="done">Готово</string>
 </resources>

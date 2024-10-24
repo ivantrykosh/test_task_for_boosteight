@@ -75,7 +75,7 @@ import io.reactivex.disposables.CompositeDisposable
 import net.kibotu.heartrateometer.HeartRateOmeter
 
 @Composable
-fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: () -> Unit = { }) {
+fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (Int) -> Unit = { }) {
     // For heart measurement
     val subscription: CompositeDisposable = remember {
         CompositeDisposable()
@@ -281,14 +281,14 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: () 
                 .offset(x = 0.dp, y = 150.dp)
                 .align(Alignment.Center)) {
                 LoadingProgressIndicator(durationMillis = measurementTimeInMillis, onProgressFinished = {
-                    val averageMeasurement = measurements.average().toInt() // todo pass to result
+                    val averageMeasurement = measurements.average().toInt()
                     isFingerDetected = false
                     currentBMP = 0
                     measurements.clear()
                     if (!subscription.isDisposed) {
                         subscription.dispose()
                     }
-                    navigateToResult()
+                    navigateToResult(averageMeasurement)
                 })
             }
         } else {

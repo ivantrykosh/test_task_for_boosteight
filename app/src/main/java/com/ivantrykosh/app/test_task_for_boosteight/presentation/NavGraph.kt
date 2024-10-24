@@ -8,6 +8,7 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.homepages.Homep
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.homepages.Homepage2Screen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.loading.LoadingScreen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.onboardings.OnboardingScreen
+import com.ivantrykosh.app.test_task_for_boosteight.presentation.result.ResultScreen
 
 @Composable
 fun NavGraph(navController: NavHostController) {
@@ -28,7 +29,7 @@ fun NavGraph(navController: NavHostController) {
                     navController.navigate(Screen.Homepage2Screen.route)
                 },
                 navigateToHistoryPage = {
-                    navController.navigate(Screen.GreetingScreen.route)
+                    navController.navigate(Screen.GreetingScreen.route) // todo
                 }
             )
         }
@@ -37,8 +38,20 @@ fun NavGraph(navController: NavHostController) {
                 navigateToHomepage1 = {
                     navController.navigateUp()
                 },
-                navigateToResult = {
-                    navController.navigate(Screen.GreetingScreen.route)
+                navigateToResult = { heartRateResult ->
+                    navController.navigate("${Screen.ResultScreen.route}/$heartRateResult")
+                }
+            )
+        }
+        composable(route = "${Screen.ResultScreen.route}/{heartRateResult}") {
+            val heartRateResult = it.arguments!!.getString("heartRateResult")!!.toInt()
+            ResultScreen(
+                heartRateResult = heartRateResult,
+                navigateToHistoryPage = {
+                    navController.navigate(Screen.GreetingScreen.route) // todo
+                },
+                navigateToHomePage1 = {
+                    navController.popBackStack(route = Screen.Homepage1Screen.route, inclusive = false)
                 }
             )
         }
