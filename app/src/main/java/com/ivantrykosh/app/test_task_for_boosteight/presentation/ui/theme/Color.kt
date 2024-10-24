@@ -22,3 +22,4 @@ val MediumSpringGreen = Color(0xFF1FF19B)
 val TartOrange = Color(0xFFFF4C4C)
 
 val WhiteTransparent = Color(0xBBFFFFFF)
+val AntiFlashWhite = Color(0xFFF2F2F2)

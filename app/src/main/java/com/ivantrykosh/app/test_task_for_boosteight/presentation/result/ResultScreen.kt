@@ -19,8 +19,6 @@ import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -51,9 +49,9 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.ivantrykosh.app.test_task_for_boosteight.R
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.Background
+import com.ivantrykosh.app.test_task_for_boosteight.presentation.BottomButton
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.HistoryIconButton
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.BrightTurquoise
-import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.LightBlueBackground
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.MediumSpringGreen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
@@ -211,20 +209,10 @@ fun ResultScreen(
                     .padding(16.dp)
                     .align(Alignment.BottomCenter)
             ) {
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    colors = ButtonDefaults.buttonColors(containerColor = PastelRed, contentColor = Color.White),
-                    onClick = navigateToHomePage1
-                ) {
-                    Text(
-                        text = stringResource(id = R.string.done),
-                        fontSize = Dimens.buttonTextSize,
-                        fontWeight = FontWeight.Normal,
-                        fontFamily = FontFamily(Font(R.font.rubik)),
-                        modifier = Modifier.fillMaxWidth(),
-                        textAlign = TextAlign.Center,
-                    )
-                }
+                BottomButton(
+                    onClick = navigateToHomePage1,
+                    textId = R.string.done
+                )
             }
         }
     }

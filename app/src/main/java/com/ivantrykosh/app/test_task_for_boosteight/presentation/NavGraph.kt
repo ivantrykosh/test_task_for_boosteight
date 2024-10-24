@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.ivantrykosh.app.test_task_for_boosteight.presentation.history.ResultHistoryScreen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.homepages.Homepage1Screen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.homepages.Homepage2Screen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.loading.LoadingScreen
@@ -29,7 +30,7 @@ fun NavGraph(navController: NavHostController) {
                     navController.navigate(Screen.Homepage2Screen.route)
                 },
                 navigateToHistoryPage = {
-                    navController.navigate(Screen.GreetingScreen.route) // todo
+                    navController.navigate(Screen.ResultHistoryScreen.route)
                 }
             )
         }
@@ -48,15 +49,19 @@ fun NavGraph(navController: NavHostController) {
             ResultScreen(
                 heartRateResult = heartRateResult,
                 navigateToHistoryPage = {
-                    navController.navigate(Screen.GreetingScreen.route) // todo
+                    navController.navigate(Screen.ResultHistoryScreen.route)
                 },
                 navigateToHomePage1 = {
                     navController.popBackStack(route = Screen.Homepage1Screen.route, inclusive = false)
                 }
             )
         }
-        composable(route = Screen.GreetingScreen.route) {
-            Greeting(name = "Ivan")
+        composable(route = Screen.ResultHistoryScreen.route) {
+            ResultHistoryScreen(
+                navigateToHomePage1 = {
+                    navController.popBackStack(route = Screen.Homepage1Screen.route, inclusive = false)
+                }
+            )
         }
     }
 }

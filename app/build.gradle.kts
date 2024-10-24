@@ -105,4 +105,7 @@ dependencies {
     // For measuring human heart rate
     implementation("com.github.kibotu:Heart-Rate-Ometer:-SNAPSHOT")
     implementation("io.reactivex.rxjava2:rxjava:2.2.8")
+
+    // Live data observing
+    implementation("androidx.compose.runtime:runtime-livedata:1.7.4")
 }

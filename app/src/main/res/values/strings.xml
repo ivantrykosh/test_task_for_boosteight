@@ -26,4 +26,7 @@
     <string name="between_60_and_100_bpm"><![CDATA[60–100 BPM]]></string>
     <string name="higher_than_100_bpm"><![CDATA[>100 BPM]]></string>
     <string name="done">Готово</string>
+    <string name="clear_history">Очистити історію</string>
+    <string name="bpm_with_parameter">%s BPM</string>
+    <string name="no_measurement">Ви ще не вимірювали свій пульс</string>
 </resources>

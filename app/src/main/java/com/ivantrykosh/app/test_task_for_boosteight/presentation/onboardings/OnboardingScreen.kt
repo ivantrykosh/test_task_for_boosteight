@@ -16,8 +16,6 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults.buttonColors
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -40,6 +38,7 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.ivantrykosh.app.test_task_for_boosteight.R
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.Background
+import com.ivantrykosh.app.test_task_for_boosteight.presentation.BottomButton
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
 import kotlinx.coroutines.launch
@@ -79,9 +78,7 @@ fun OnboardingScreen(navigateToHome: () -> Unit) {
                     .align(Alignment.CenterHorizontally),
                 count = numberOfOnboardings
             )
-            Button(
-                modifier = Modifier.fillMaxWidth(),
-                colors = buttonColors(containerColor = PastelRed, contentColor = Color.White),
+            BottomButton(
                 onClick = {
                     if (OnboardingScreens.entries[pagerState.currentPage] != OnboardingScreens.OnboardingInfo3) {
                         scope.launch {
@@ -90,20 +87,12 @@ fun OnboardingScreen(navigateToHome: () -> Unit) {
                     } else {
                         navigateToHome()
                     }
-                }) {
-                val buttonText = when (OnboardingScreens.entries[pagerState.currentPage]) {
-                    OnboardingScreens.OnboardingInfo1, OnboardingScreens.OnboardingInfo3 -> stringResource(id = R.string.start)
-                    OnboardingScreens.OnboardingInfo2 -> stringResource(id = R.string.continue_)
+                },
+                textId = when (OnboardingScreens.entries[pagerState.currentPage]) {
+                    OnboardingScreens.OnboardingInfo1, OnboardingScreens.OnboardingInfo3 -> R.string.start
+                    OnboardingScreens.OnboardingInfo2 -> R.string.continue_
                 }
-                Text(
-                    text = buttonText,
-                    fontSize = Dimens.buttonTextSize,
-                    fontWeight = FontWeight.Normal,
-                    fontFamily = FontFamily(Font(R.font.rubik)),
-                    modifier = Modifier.fillMaxWidth(),
-                    textAlign = TextAlign.Center,
-                )
-            }
+            )
         }
     }
 }
