@@ -14,7 +14,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-class HeartRateDaoTest {
+class HeartRateTypeDaoTest {
 
     private lateinit var db: AppDatabase
     private lateinit var heartRateDao: HeartRateDao
@@ -45,13 +45,14 @@ class HeartRateDaoTest {
 
     @Test
     fun insertHeartRatesAndGetInList() = runTest {
-        val heartRates = listOf(HeartRate(heartRate = 80, dateTime = 17755533), HeartRate(heartRate = 100, dateTime = 17757533), HeartRate(heartRate = 90, dateTime = 17795533))
+        val heartRates = listOf(HeartRate(heartRate = 80, dateTime = 17755530), HeartRate(heartRate = 100, dateTime = 17757537), HeartRate(heartRate = 90, dateTime = 17795520))
         heartRates.forEach { heartRateDao.insertHeartRate(it) }
         val heartRatesInDb = heartRateDao.getAllHeartRates()
-        assertEquals(heartRates.size, heartRatesInDb.size)
-        for (i in heartRates.indices) {
-            assertEquals(heartRates[i].heartRate, heartRatesInDb[i].heartRate)
-            assertEquals(heartRates[i].dateTime, heartRatesInDb[i].dateTime)
+        val sortedHeartRates = heartRates.sortedByDescending { it.dateTime }
+        assertEquals(sortedHeartRates.size, heartRatesInDb.size)
+        for (i in sortedHeartRates.indices) {
+            assertEquals(sortedHeartRates[i].heartRate, heartRatesInDb[i].heartRate)
+            assertEquals(sortedHeartRates[i].dateTime, heartRatesInDb[i].dateTime)
         }
     }
 

@@ -18,6 +18,9 @@ import com.ivantrykosh.app.test_task_for_boosteight.R
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
 
+/**
+ * Reusable button
+ */
 @Preview(showBackground = true)
 @Composable
 fun BottomButton(onClick: () -> Unit = {}, @StringRes textId: Int = R.string.app_name) {

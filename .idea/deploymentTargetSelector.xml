@@ -19,6 +19,9 @@
       <SelectionState runConfigName="Tests in 'com.ivantrykosh.app.test_task_for_boosteight'">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+      <SelectionState runConfigName="Tests in 'com.ivantrykosh.app.test_task_for_boosteight.data.local'">
+        <option name="selectionMode" value="DROPDOWN" />
+      </SelectionState>
     </selectionStates>
   </component>
 </project>

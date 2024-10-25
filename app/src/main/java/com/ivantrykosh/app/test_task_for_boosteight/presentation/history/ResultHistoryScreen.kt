@@ -65,6 +65,9 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Melon
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
 import com.ivantrykosh.app.test_task_for_boosteight.utils.DateUtil
 
+/**
+ * Represents result history
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ResultHistoryScreen(
@@ -77,12 +80,10 @@ fun ResultHistoryScreen(
     LaunchedEffect(key1 = Unit) {
         resultHistoryViewModel.getAllHeartRates()
     }
-
     val localDensity = LocalDensity.current
     var columnHeightDp by remember {
         mutableStateOf(0.dp)
     }
-
     val scrollState = rememberLazyListState()
 
 
@@ -103,7 +104,7 @@ fun ResultHistoryScreen(
                 navigationIcon = {
                     Icon(
                         imageVector = Icons.Default.ArrowBack,
-                        contentDescription = "",
+                        contentDescription = stringResource(id = R.string.back_button),
                         tint = Color.White,
                         modifier = Modifier
                             .padding(horizontal = 8.dp)
@@ -196,7 +197,6 @@ fun ResultHistoryScreen(
                 val visibleItemsCount = layoutInfo.visibleItemsInfo.size
 
                 if (results.isNotEmpty()) {
-                    // Define scrollbar height behavior
                     val scrollbarHeight = if (visibleItemsCount >= totalItemsCount) {
                         // If the list is short (no scrolling needed), take the full track height
                         layoutInfo.viewportEndOffset.toFloat()
@@ -235,7 +235,7 @@ fun ResultHistoryScreen(
                             .align(Alignment.CenterEnd)
                             .fillMaxHeight()
                             .offset(x = 4.dp)
-                            .width(12.dp) // Slightly wider to accommodate the track and scrollbar
+                            .width(12.dp)
                     ) {
                         // Draw the track with a border and rounded corners
                         val trackHeight = size.height - localDensity.run { 16.dp.toPx() }
@@ -265,7 +265,7 @@ fun ResultHistoryScreen(
                             color = scrollbarColor,
                             topLeft = Offset((size.width - scrollbarWidth) / 2, adjustedScrollbarYPosition),
                             size = Size(scrollbarWidth, adjustedScrollbarHeight),
-                            cornerRadius = CornerRadius(4.dp.toPx(), 4.dp.toPx()) // Rounded scrollbar
+                            cornerRadius = CornerRadius(4.dp.toPx(), 4.dp.toPx())
                         )
                     }
                 }
@@ -274,6 +274,9 @@ fun ResultHistoryScreen(
     }
 }
 
+/**
+ * Represents history item (basically HeartRate object)
+ */
 //@Preview(showBackground = true, backgroundColor = 0xFFB2DEFB)
 @Composable
 fun HistoryItemCard(heartRate: HeartRate = HeartRate(heartRate = 80, dateTime = 1729785953)) {
@@ -338,7 +341,6 @@ fun HistoryItemCard(heartRate: HeartRate = HeartRate(heartRate = 80, dateTime = 
                                 .offset(y = (-2).dp)
                         )
                     }
-
                 }
             }
         }

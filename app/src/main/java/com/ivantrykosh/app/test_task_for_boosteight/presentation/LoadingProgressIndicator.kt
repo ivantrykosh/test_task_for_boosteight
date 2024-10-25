@@ -31,6 +31,9 @@ import com.ivantrykosh.app.test_task_for_boosteight.R
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Melon
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
 
+/**
+ * Loading progress bar
+ */
 @Composable
 fun LoadingProgressIndicator(
     durationMillis: Int = 2000,

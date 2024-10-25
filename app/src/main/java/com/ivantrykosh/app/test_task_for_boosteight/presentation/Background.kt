@@ -16,6 +16,9 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.AntiFl
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.LightBlueBackground
 
+/**
+ * Represents background
+ */
 @Composable
 fun Background() {
     val configuration = LocalConfiguration.current

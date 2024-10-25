@@ -14,7 +14,7 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
-class InsertHeartRateUseCaseTest {
+class InsertHeartRateTypeUseCaseTest {
 
     private lateinit var heartRateRepositoryImpl: HeartRateRepositoryImpl
     private lateinit var insertHeartRateUseCase: InsertHeartRateUseCase

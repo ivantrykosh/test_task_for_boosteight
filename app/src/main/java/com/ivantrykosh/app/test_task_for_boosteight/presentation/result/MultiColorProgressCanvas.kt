@@ -27,6 +27,9 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Bright
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.MediumSpringGreen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.TartOrange
 
+/**
+ * Progress canvas with multiple colors and indicator
+ */
 @Composable
 fun MultiColorProgressCanvas(targetIndicatorPosition: Float = 1f) {
     var targetPosition by remember {
@@ -53,6 +56,7 @@ fun MultiColorProgressCanvas(targetIndicatorPosition: Float = 1f) {
 
         val cornerRadius = CornerRadius(10.dp.toPx())
 
+        // Draw first segment
         val firstPath = Path().apply {
             addRoundRect(
                 RoundRect(
@@ -70,12 +74,14 @@ fun MultiColorProgressCanvas(targetIndicatorPosition: Float = 1f) {
             color = BrightTurquoise
         )
 
+        // Draw second segment
         drawRect(
             color =  MediumSpringGreen,
             topLeft = Offset(greenSize.toPx(), 5.dp.toPx()),
             size = Size(yellowSize.toPx(), 20.dp.toPx())
         )
 
+        // Draw third segment
         val lastPath = Path().apply {
             addRoundRect(
                 RoundRect(
@@ -93,6 +99,7 @@ fun MultiColorProgressCanvas(targetIndicatorPosition: Float = 1f) {
             color = TartOrange
         )
 
+        // Draw indicator
         val indicatorPosition = (canvasWidth - 7.dp) * currentIndicatorPosition
         val indicatorPath = Path().apply {
             val indicatorCornerRadius = CornerRadius(4.dp.toPx())

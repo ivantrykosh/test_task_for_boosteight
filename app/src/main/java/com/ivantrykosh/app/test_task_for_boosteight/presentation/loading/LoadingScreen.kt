@@ -11,6 +11,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.Font
@@ -24,15 +25,18 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.Background
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.LoadingProgressIndicator
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 
+/**
+ * Represents Loading screen
+ */
 @Composable
-fun LoadingScreen(navigateToOnboarding: () -> Unit) {
+fun LoadingScreen(navigateToOnboardingOrHomePage1: () -> Unit) {
     Background()
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painter = painterResource(id = R.drawable.heart),
-            contentDescription = "",
+            contentDescription = stringResource(id = R.string.heart),
             modifier = Modifier
                 .align(Alignment.Center)
                 .offset(x = 0.dp, y = Dimens.heartImageVerticalOffset)
@@ -40,6 +44,7 @@ fun LoadingScreen(navigateToOnboarding: () -> Unit) {
         )
         Text(
             text = stringResource(id = R.string.app_name),
+            color = Color.Black,
             fontSize = 54.sp,
             fontWeight = FontWeight.Bold,
             fontFamily = FontFamily(Font(R.font.rubik_medium)),
@@ -52,7 +57,7 @@ fun LoadingScreen(navigateToOnboarding: () -> Unit) {
             .padding(32.dp)
             .padding(bottom = 10.dp)
             .align(Alignment.BottomCenter)) {
-            LoadingProgressIndicator(durationMillis = 2000, onProgressFinished = navigateToOnboarding)
+            LoadingProgressIndicator(durationMillis = 2000, onProgressFinished = navigateToOnboardingOrHomePage1)
         }
     }
 }
@@ -60,5 +65,5 @@ fun LoadingScreen(navigateToOnboarding: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun LoadingScreenPreview() {
-    LoadingScreen(navigateToOnboarding = {})
+    LoadingScreen(navigateToOnboardingOrHomePage1 = {})
 }

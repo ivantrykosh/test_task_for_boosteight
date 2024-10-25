@@ -10,18 +10,31 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.homepages.Homep
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.loading.LoadingScreen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.onboardings.OnboardingScreen
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.result.ResultScreen
+import com.ivantrykosh.app.test_task_for_boosteight.utils.AppPreferences
 
 @Composable
 fun NavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.LoadingScreen.route) {
         composable(route = Screen.LoadingScreen.route) {
-            LoadingScreen(navigateToOnboarding = {
-                navController.navigate(Screen.OnBoardingScreen.route)
+            LoadingScreen(navigateToOnboardingOrHomePage1 = {
+                // Track is it's first session and choose corresponding screen user navigates to
+                if (AppPreferences.isFirstSession == true) {
+                    AppPreferences.isFirstSession = false
+                    navController.navigate(Screen.OnBoardingScreen.route) {
+                        popUpTo(Screen.LoadingScreen.route) { inclusive = true }
+                    }
+                } else {
+                    navController.navigate(Screen.Homepage1Screen.route) {
+                        popUpTo(Screen.LoadingScreen.route) { inclusive = true }
+                    }
+                }
             })
         }
         composable(route = Screen.OnBoardingScreen.route) {
             OnboardingScreen(navigateToHome = {
-                navController.navigate(Screen.Homepage1Screen.route)
+                navController.navigate(Screen.Homepage1Screen.route) {
+                    popUpTo(Screen.OnBoardingScreen.route) { inclusive = true }
+                }
             })
         }
         composable(route = Screen.Homepage1Screen.route) {
@@ -40,7 +53,9 @@ fun NavGraph(navController: NavHostController) {
                     navController.navigateUp()
                 },
                 navigateToResult = { heartRateResult ->
-                    navController.navigate("${Screen.ResultScreen.route}/$heartRateResult")
+                    navController.navigate("${Screen.ResultScreen.route}/$heartRateResult") {
+                        popUpTo(Screen.Homepage2Screen.route) { inclusive = true }
+                    }
                 }
             )
         }
@@ -49,7 +64,9 @@ fun NavGraph(navController: NavHostController) {
             ResultScreen(
                 heartRateResult = heartRateResult,
                 navigateToHistoryPage = {
-                    navController.navigate(Screen.ResultHistoryScreen.route)
+                    navController.navigate(Screen.ResultHistoryScreen.route) {
+                        popUpTo("${Screen.ResultScreen.route}/{heartRateResult}") { inclusive = true }
+                    }
                 },
                 navigateToHomePage1 = {
                     navController.popBackStack(route = Screen.Homepage1Screen.route, inclusive = false)

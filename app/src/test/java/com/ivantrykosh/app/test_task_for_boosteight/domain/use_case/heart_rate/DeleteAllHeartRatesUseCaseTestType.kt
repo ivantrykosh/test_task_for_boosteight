@@ -13,7 +13,7 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
-class DeleteAllHeartRatesUseCaseTest {
+class DeleteAllHeartRatesUseCaseTestType {
 
     private lateinit var heartRateRepositoryImpl: HeartRateRepositoryImpl
     private lateinit var deleteAllHeartRatesUseCase: DeleteAllHeartRatesUseCase

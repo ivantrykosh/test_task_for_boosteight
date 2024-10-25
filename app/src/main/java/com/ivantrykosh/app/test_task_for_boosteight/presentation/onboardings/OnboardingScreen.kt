@@ -43,10 +43,16 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.PastelRed
 import kotlinx.coroutines.launch
 
+/**
+ * All Onboarding screens
+ */
 enum class OnboardingScreens {
     OnboardingInfo1, OnboardingInfo2, OnboardingInfo3;
 }
 
+/**
+ * Represents Onboarding screens
+ */
 @Composable
 fun OnboardingScreen(navigateToHome: () -> Unit) {
     val numberOfOnboardings = OnboardingScreens.entries.size
@@ -97,6 +103,9 @@ fun OnboardingScreen(navigateToHome: () -> Unit) {
     }
 }
 
+/**
+ * Animated pager indicator
+ */
 @Composable
 fun ExpandablePagerIndicator(
     pagerState: PagerState,
@@ -148,12 +157,6 @@ val PagerState.pageOffset: Float
 
 /**
  * Draw the round indicator on the canvas
- * @param x starting X coordinate for drawing
- * @param y starting Y coordinate for drawing
- * @param width width of figure to draw
- * @param height height of figure to draw
- * @param radius corner radius of figure
- * @param isCurrentPage boolean value to select corresponding color for figure
  */
 private fun DrawScope.drawIndicator(
     x: Float,
@@ -174,6 +177,9 @@ private fun DrawScope.drawIndicator(
     drawPath(path = path, color = if (isCurrentPage) PastelRed else Color.LightGray)
 }
 
+/**
+ * Content of Onboarding screen
+ */
 @Composable
 fun OnboardingInfo(onboardingScreen: OnboardingScreens) {
     @DrawableRes val imageRes: Int
@@ -216,6 +222,7 @@ fun OnboardingInfo(onboardingScreen: OnboardingScreens) {
         ) {
             Text(
                 text = stringResource(id = title),
+                color = Color.Black,
                 fontSize = Dimens.onboardingTitleTextSize,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily(Font(R.font.rubik_medium)),
@@ -227,6 +234,7 @@ fun OnboardingInfo(onboardingScreen: OnboardingScreens) {
                 .height(Dimens.onboardingTitleDescriptionSpacerHeight))
             Text(
                 text = stringResource(id = description),
+                color = Color.Black,
                 fontSize = Dimens.onboardingDescriptionTextSize,
                 fontWeight = FontWeight.Normal,
                 fontFamily = FontFamily(Font(R.font.rubik)),

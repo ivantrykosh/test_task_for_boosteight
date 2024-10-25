@@ -14,6 +14,9 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
+/**
+ * ViewModel for ResultHistory screen
+ */
 @HiltViewModel
 class ResultHistoryViewModel @Inject constructor(
     private val getAllHeartRatesUseCase: GetAllHeartRatesUseCase,

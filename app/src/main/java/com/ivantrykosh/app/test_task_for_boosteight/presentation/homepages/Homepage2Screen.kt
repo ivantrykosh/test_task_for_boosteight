@@ -2,6 +2,7 @@ package com.ivantrykosh.app.test_task_for_boosteight.presentation.homepages
 
 import android.graphics.BlurMaskFilter
 import android.view.SurfaceView
+import androidx.activity.compose.BackHandler
 import androidx.annotation.StringRes
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.core.FastOutSlowInEasing
@@ -35,6 +36,7 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.SideEffect
 import androidx.compose.runtime.getValue
@@ -65,6 +67,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.ivantrykosh.app.test_task_for_boosteight.R
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.Background
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.LoadingProgressIndicator
@@ -74,6 +79,9 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Pastel
 import io.reactivex.disposables.CompositeDisposable
 import net.kibotu.heartrateometer.HeartRateOmeter
 
+/**
+ * Represents Homepage2 and Homepage3
+ */
 @Composable
 fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (Int) -> Unit = { }) {
     // For heart measurement
@@ -92,6 +100,14 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
     val context = LocalContext.current
     val surfaceView = remember { SurfaceView(context) }
     val measurementTimeInMillis = 20000
+
+    // For dispose subscription and back to homepage1 when back is pressed
+    BackHandler {
+        if (!subscription.isDisposed) {
+            subscription.dispose()
+        }
+        navigateToHomepage1()
+    }
 
     // For animating heart
     val scale by rememberInfiniteTransition(label = "ScaleImageInfinite").animateFloat(
@@ -112,6 +128,7 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
         oldBMP = currentBMP
     }
 
+    // Start listing to BPM updates
     LaunchedEffect(key1 = 0) {
         val sub = HeartRateOmeter()
             .setFingerDetectionListener {
@@ -134,7 +151,7 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
         if (!isFingerDetected) {
             Icon(
                 imageVector = Icons.Default.Close,
-                contentDescription = "",
+                contentDescription = stringResource(id = R.string.close),
                 tint = Color.Gray,
                 modifier = Modifier
                     .align(Alignment.TopEnd)
@@ -169,6 +186,7 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
             @StringRes val description = if (isFingerDetected) R.string.measuring_in_progress_description else R.string.finger_not_detected_description
             Text(
                 text = stringResource(id = title),
+                color = Color.Black,
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Bold,
                 fontFamily = FontFamily(Font(R.font.rubik_medium)),
@@ -195,10 +213,11 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
             val imageScale = if (isFingerDetected) scale else Dimens.imageScale
             Image(
                 painter = painterResource(id = R.drawable.simple_heart),
-                contentDescription = "",
+                contentDescription = stringResource(id = R.string.heart),
                 modifier = Modifier
                     .align(Alignment.Center)
                     .scale(imageScale)
+                    // Another variant for image animation (scaling image from center bottom)
 //                    .offset(x = 0.dp, y = 25.dp)
 //                    .graphicsLayer {
 //                        // Set pivot to the center-bottom of the image for scaling
@@ -274,6 +293,7 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
                 )
             }
         }
+        // If finger detected show Homepage3, else show Homepage2
         if (isFingerDetected) {
             Box(modifier = Modifier
                 .wrapContentSize()
@@ -294,7 +314,7 @@ fun Homepage2Screen(navigateToHomepage1: () -> Unit = { }, navigateToResult: (In
         } else {
             Image(
                 painter = painterResource(id = R.drawable.phone_and_hand),
-                contentDescription = "",
+                contentDescription = stringResource(id = R.string.finger_not_detected_description),
                 modifier = Modifier
                     .align(Alignment.BottomCenter)
                     .offset(x = 20.dp, y = (-150).dp)

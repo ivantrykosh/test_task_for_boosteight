@@ -28,6 +28,6 @@ interface HeartRateDao {
      * Get all heart rates from db
      * @return list of all heart rates in db
      */
-    @Query("SELECT * FROM heart_rate")
+    @Query("SELECT * FROM heart_rate ORDER BY dateTime DESC")
     suspend fun getAllHeartRates(): List<HeartRate>
 }

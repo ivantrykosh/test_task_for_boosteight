@@ -11,7 +11,7 @@ import org.mockito.kotlin.mock
 import org.mockito.kotlin.verify
 import org.mockito.kotlin.whenever
 
-class HeartRateRepositoryImplTest {
+class HeartRateTypeRepositoryImplTest {
 
     private lateinit var mockHeartRateDao: HeartRateDao
     private lateinit var heartRateRepositoryImpl: HeartRateRepositoryImpl

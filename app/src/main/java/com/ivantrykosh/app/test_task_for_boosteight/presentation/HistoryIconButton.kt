@@ -23,6 +23,9 @@ import androidx.compose.ui.unit.dp
 import com.ivantrykosh.app.test_task_for_boosteight.R
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.Dimens
 
+/**
+ * Button with icon and text
+ */
 @Composable
 fun HistoryIconButton(onClick: () -> Unit = {}) {
     IconButton(onClick = onClick, modifier = Modifier

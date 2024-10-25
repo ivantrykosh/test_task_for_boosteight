@@ -59,12 +59,18 @@ import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.TartOr
 import com.ivantrykosh.app.test_task_for_boosteight.presentation.ui.theme.WhiteTransparent
 import com.ivantrykosh.app.test_task_for_boosteight.utils.DateUtil
 
-enum class HeartRate(@StringRes val description: Int, val color: Color) {
+/**
+ * Heart rate types. Contains name of type and color
+ */
+enum class HeartRateType(@StringRes val description: Int, val color: Color) {
     SLOWED_DOWN(R.string.slowed_down, BrightTurquoise),
     NORMAL(R.string.normal, MediumSpringGreen),
     SPEEDED_UP(R.string.speeded_up, TartOrange);
 }
 
+/**
+ * Represents Result screen
+ */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ResultScreen(
@@ -77,14 +83,16 @@ fun ResultScreen(
         mutableLongStateOf(0)
     }
     val result = when {
-        heartRateResult < 60 -> HeartRate.SLOWED_DOWN
-        heartRateResult <= 100 -> HeartRate.NORMAL
-        else -> HeartRate.SPEEDED_UP
+        heartRateResult < 60 -> HeartRateType.SLOWED_DOWN
+        heartRateResult <= 100 -> HeartRateType.NORMAL
+        else -> HeartRateType.SPEEDED_UP
     }
+    // Save heart rate result
     LaunchedEffect(key1 = Unit) {
         timeOfResult = DateUtil.getCurrentTimeInSeconds()
         resultViewModel.insertHeartRate(heartRateResult, timeOfResult)
     }
+
     Scaffold(
         topBar = {
             TopAppBar(
@@ -146,7 +154,7 @@ fun ResultScreen(
                     Row(modifier =  Modifier.weight(0.3f)) {
                         Icon(
                             painter = painterResource(id = R.drawable.baseline_access_time_24),
-                            contentDescription = "",
+                            contentDescription = stringResource(id = R.string.time),
                             modifier = Modifier
                                 .size(20.dp)
                                 .align(Alignment.CenterVertically),
@@ -218,6 +226,9 @@ fun ResultScreen(
     }
 }
 
+/**
+ * Represent info about certain heart rate type
+ */
 @Composable
 fun HeartRateInfo(dotColor: Color, @StringRes infoText: Int, @StringRes bpmText: Int, isBold: Boolean) {
     Row(

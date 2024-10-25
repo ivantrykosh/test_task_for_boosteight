@@ -10,6 +10,7 @@
     <string name="reminder_description">Не відставайте від графіка контролю артеріального тиску та прийому ліків за допомогою спеціальних нагадувань.</string>
     <string name="history">Історія</string>
     <string name="take_your_first_measurement">Виконайте своє перше вимірювання!</string>
+    <string name="take_your_measurement">Виконайте своє вимірювання!</string>
     <string name="camera_permission_is_needed">Дозвіл на використання камери потрібен для роботи програми!</string>
     <string name="finger_not_detected">Палець не виявлено</string>
     <string name="finger_not_detected_description">Щільно прикладіть палець до камери</string>
@@ -29,4 +30,11 @@
     <string name="clear_history">Очистити історію</string>
     <string name="bpm_with_parameter">%s BPM</string>
     <string name="no_measurement">Ви ще не вимірювали свій пульс</string>
+    <string name="camera_permission_is_needed_rationale">Дозвіл на використання камери потрібен для роботи програми! Надайте дозвіл у налаштуваннях</string>
+    <string name="ok">OK</string>
+    <string name="back_button">Повернутися на попередню сторінку</string>
+    <string name="heart">Серце</string>
+    <string name="measure_heart_rate">Перейти до вимірювання пульсу</string>
+    <string name="close">Закрити</string>
+    <string name="time">Час</string>
 </resources>

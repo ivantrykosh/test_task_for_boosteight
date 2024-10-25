@@ -1,5 +1,8 @@
 package com.ivantrykosh.app.test_task_for_boosteight.presentation
 
+/**
+ * Contains all screens in app
+ */
 sealed class Screen(val route: String) {
     data object LoadingScreen: Screen("loading_screen")
     data object OnBoardingScreen: Screen("onboarding_screen")
